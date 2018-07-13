@@ -10,7 +10,7 @@ import SpriteKit
 import GameplayKit
 
 class GameScene: SKScene {
-    
+    var commit = "did it?"
     private var label : SKLabelNode?
     private var spinnyNode : SKShapeNode?
     
