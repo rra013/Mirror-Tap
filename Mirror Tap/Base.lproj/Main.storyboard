@@ -43,7 +43,7 @@
         <!--Main Screen-->
         <scene sceneID="JYk-QX-6Q7">
             <objects>
-                <viewController title="Main Screen" id="1n0-Ei-rlD" sceneMemberID="viewController">
+                <viewController title="Main Screen" id="1n0-Ei-rlD" customClass="HighScoreViewController" customModule="Mirror_Tap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zXe-5E-YQY">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
