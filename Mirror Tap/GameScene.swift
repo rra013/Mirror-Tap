@@ -44,6 +44,9 @@ class GameScene: SKScene {
                     setUpBalls()
                 }
             }
+            else{
+                print("Loss")
+            }
         }
     }
     
