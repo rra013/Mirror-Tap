@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1n0-Ei-rlD">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,13 +15,16 @@
             <objects>
                 <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Mirror_Tap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg4-ie-zck">
-                                <rect key="frame" x="22" y="20" width="36" height="32"/>
-                                <fontDescription key="fontDescription" name="DINAlternate-Bold" family="DIN Alternate" pointSize="17"/>
-                                <state key="normal" title="Back">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg4-ie-zck">
+                                <rect key="frame" x="22" y="25" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="30" id="H1B-gN-pJC"/>
+                                    <constraint firstAttribute="height" constant="30" id="Nbi-3r-V3m"/>
+                                </constraints>
+                                <state key="normal" title="Back" image="back">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
@@ -31,8 +34,8 @@
                         </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Rg4-ie-zck" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="Msp-N0-eh3"/>
                             <constraint firstItem="Rg4-ie-zck" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="22" id="PW6-9x-caL"/>
+                            <constraint firstItem="Rg4-ie-zck" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="25" id="UqS-jZ-JqY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
@@ -45,48 +48,56 @@
             <objects>
                 <viewController title="Main Screen" id="1n0-Ei-rlD" customClass="HighScoreViewController" customModule="Mirror_Tap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="zXe-5E-YQY">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mirror Tap" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S80-pq-CyS">
-                                <rect key="frame" x="78" y="116" width="218" height="49"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="49" id="PaO-mR-t7u"/>
-                                    <constraint firstAttribute="width" constant="218" id="qWt-7Z-IhA"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="37"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKe-Zx-hwD">
-                                <rect key="frame" x="153.66666666666666" y="381" width="67" height="50"/>
+                                <rect key="frame" x="146" y="306" width="84" height="55"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.96078431369999995" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="iOU-oF-nKC"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
-                                <state key="normal" title="Start">
+                                <state key="normal" title=" Start ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
                                 <connections>
                                     <segue destination="BV1-FR-VrT" kind="show" id="pz5-xD-elp"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-BR-9Cy">
-                                <rect key="frame" x="107" y="511" width="160" height="113"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="113" id="OiV-tJ-cwh"/>
-                                </constraints>
+                                <rect key="frame" x="136" y="441" width="103" height="25"/>
                                 <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1K-Tp-B3X">
+                                <rect key="frame" x="31" y="90" width="313" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="313" id="ogx-uP-AUo"/>
+                                    <constraint firstAttribute="height" constant="87" id="pU5-sa-9k7"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="logo"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
                         </subviews>
-                        <color key="backgroundColor" red="0.88235294117647056" green="0.96078431372549022" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.92941176470588238" green="0.89803921568627454" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="centerX" secondItem="S80-pq-CyS" secondAttribute="centerX" id="Bsd-cF-ALC"/>
-                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="top" secondItem="YKe-Zx-hwD" secondAttribute="bottom" constant="80" id="a4Q-pM-phf"/>
+                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="3cR-2R-nfK"/>
+                            <constraint firstItem="N1K-Tp-B3X" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="NJe-Vf-aNN"/>
+                            <constraint firstItem="YKe-Zx-hwD" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="ZuZ-Bp-SEs"/>
+                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="top" secondItem="YKe-Zx-hwD" secondAttribute="bottom" constant="80" id="gtR-oy-l48"/>
                             <constraint firstItem="YKe-Zx-hwD" firstAttribute="centerY" secondItem="zXe-5E-YQY" secondAttribute="centerY" id="i1a-zP-rd3"/>
-                            <constraint firstItem="S80-pq-CyS" firstAttribute="top" secondItem="6aG-8w-agg" secondAttribute="top" constant="72" id="o0D-14-LzN"/>
-                            <constraint firstItem="S80-pq-CyS" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="uIA-m9-fAX"/>
-                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="centerX" secondItem="YKe-Zx-hwD" secondAttribute="centerX" id="uXw-g7-oO8"/>
-                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="leading" secondItem="6aG-8w-agg" secondAttribute="leading" constant="107" id="zac-NE-Ucn"/>
+                            <constraint firstItem="N1K-Tp-B3X" firstAttribute="top" secondItem="6aG-8w-agg" secondAttribute="top" constant="70" id="nNJ-5b-S5m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6aG-8w-agg"/>
                     </view>
@@ -99,4 +110,8 @@
             <point key="canvasLocation" x="-751.20000000000005" y="98.50074962518741"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="back" width="512" height="512"/>
+        <image name="logo" width="2614" height="744"/>
+    </resources>
 </document>

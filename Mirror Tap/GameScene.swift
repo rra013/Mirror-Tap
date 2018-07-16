@@ -94,7 +94,7 @@ class GameScene: SKScene {
         removeAllChildren()
 
         var ballX = Int(arc4random_uniform(UInt32(frame.maxX-50)))
-        var ballY = Int(arc4random_uniform(UInt32(frame.maxY-50)))
+        var ballY = Int(arc4random_uniform(UInt32(frame.maxY-60)))
         if(ballY < 50){
             ballY = 60
         }
@@ -109,7 +109,6 @@ class GameScene: SKScene {
         visibleBall.scale(to: CGSize(width: 100, height: 100))
         visibleBall.position = CGPoint(x: Int(ballX), y: Int(ballY))
         tappableBall.position = CGPoint(x: -ballX, y: -ballY)
-
         tappableBall.name = "tappable"
         tappableBall.alpha = 0.1
         
@@ -138,15 +137,15 @@ class GameScene: SKScene {
         if score[0] > highscore[0]{
             if let encoded = try? JSONEncoder().encode(score){
                 defaults.set(encoded, forKey : "dataz")
-                print("this ihuvhli;ofdyuof")
+                print("saved")
             }
-            print("saved")
+            print("saved?")
         }
     }
     
     func lose(){
-        self.backgroundColor = .red
-        scoreLabel.text = "FAT L"
+        self.backgroundColor = UIColor(red:1.00, green:0.31, blue:0.31, alpha:1.0)
+        scoreLabel.text = "You Lost!"
         scoreLabel.fontSize = 100
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         self.removeAllChildren()
