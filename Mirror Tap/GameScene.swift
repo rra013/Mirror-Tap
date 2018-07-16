@@ -86,8 +86,8 @@ class GameScene: SKScene {
     func setUpBalls(){
         removeAllChildren()
 
-        var ballX = Int(arc4random_uniform(UInt32(frame.maxX-50)))
-        let ballY = Int(arc4random_uniform(UInt32(frame.maxY-50)))
+        var ballX = Int(arc4random_uniform(UInt32(frame.maxX-70)))
+        let ballY = Int(arc4random_uniform(UInt32(frame.maxY-70)))
         let qSelector = arc4random_uniform(2)
         
         if(qSelector == 1){
