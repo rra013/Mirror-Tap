@@ -13,10 +13,15 @@ class GameScene: SKScene {
     
     var visibleBall = SKShapeNode()
     var tappableBall = SKShapeNode()
+    
+    var scoreLabel = SKLabelNode()
+    
+    
     var score = 0
     
     override func didMove(to view: SKView) {
         setUpBalls()
+        setUpScoreLabel()
     }
     
     
@@ -42,10 +47,13 @@ class GameScene: SKScene {
                 if name == "tappable"
                 {
                     setUpBalls()
+                    score += 1
+                    setUpScoreLabel()
                 }
             }
             else{
                 print("Loss")
+                
             }
         }
     }
@@ -64,6 +72,8 @@ class GameScene: SKScene {
     
     func setUpBalls(){
         removeAllChildren()
+        
+        
         var ballX = Int(arc4random_uniform(UInt32(frame.maxX)))
         let ballY = Int(arc4random_uniform(UInt32(frame.maxY)))
         let qSelector = arc4random_uniform(2)
@@ -85,9 +95,16 @@ class GameScene: SKScene {
         
         addChild(visibleBall)
         addChild(tappableBall)
-        print("BALL")
+        print("BALL\n\(score)")
     }
    
+    func setUpScoreLabel(){
+        scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 30)
+        scoreLabel.text = String(score)
+        scoreLabel.fontSize = 30
+        scoreLabel.fontColor = .white
+        addChild(scoreLabel)
+    }
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
