@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" systemVersion="17A278a" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BV1-FR-VrT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14113" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="1n0-Ei-rlD">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -9,16 +13,116 @@
         <!--Game View Controller-->
         <scene sceneID="tXr-a1-R10">
             <objects>
-                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BV1-FR-VrT" customClass="GameViewController" customModule="Mirror_Tap" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" multipleTouchEnabled="YES" contentMode="scaleToFill" id="3se-qz-xqx" customClass="SKView">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Rg4-ie-zck">
+                                <rect key="frame" x="22" y="20" width="50" height="40"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="23"/>
+                                <state key="normal" title="Back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1n0-Ei-rlD" kind="show" id="PlL-bK-p3m"/>
+                                </connections>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="Rg4-ie-zck" firstAttribute="top" secondItem="3se-qz-xqx" secondAttribute="top" constant="20" id="Msp-N0-eh3"/>
+                            <constraint firstItem="Rg4-ie-zck" firstAttribute="leading" secondItem="4qk-I5-YsI" secondAttribute="leading" constant="22" id="PW6-9x-caL"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="4qk-I5-YsI"/>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+        </scene>
+        <!--Main Screen-->
+        <scene sceneID="JYk-QX-6Q7">
+            <objects>
+                <viewController title="Main Screen" id="1n0-Ei-rlD" customClass="HighScoreViewController" customModule="Mirror_Tap" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="zXe-5E-YQY">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mirror Tap" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S80-pq-CyS">
+                                <rect key="frame" x="78" y="116" width="218" height="49"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="49" id="PaO-mR-t7u"/>
+                                    <constraint firstAttribute="width" constant="218" id="qWt-7Z-IhA"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="37"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YKe-Zx-hwD">
+                                <rect key="frame" x="110" y="201" width="155" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="3iC-06-DG2"/>
+                                    <constraint firstAttribute="width" constant="155" id="8EN-my-V9H"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                <state key="normal" title="Hard Mode">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="pz5-xD-elp"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4ZQ-gT-FOR">
+                                <rect key="frame" x="110" y="418" width="155" height="101"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="101" id="OHA-r5-g4G"/>
+                                    <constraint firstAttribute="width" constant="155" id="dAi-CJ-KWG"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="25"/>
+                                <state key="normal" title="Speed Mode">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7lV-HJ-ZZO">
+                                <rect key="frame" x="107" y="527" width="160" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="160" id="80t-Yt-Nkn"/>
+                                    <constraint firstAttribute="height" constant="113" id="aTv-7W-f6V"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-BR-9Cy">
+                                <rect key="frame" x="107.66666666666669" y="310" width="160" height="113"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="113" id="CwB-XN-gXc"/>
+                                    <constraint firstAttribute="width" constant="160" id="FBg-p1-PIR"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" red="0.88235294117647056" green="0.96078431372549022" blue="0.76862745098039209" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="7lV-HJ-ZZO" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="DEc-Up-xiG"/>
+                            <constraint firstItem="4ZQ-gT-FOR" firstAttribute="top" secondItem="YKe-Zx-hwD" secondAttribute="bottom" constant="116" id="GRk-A5-4Xr"/>
+                            <constraint firstItem="4ZQ-gT-FOR" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="Qrh-em-MZn"/>
+                            <constraint firstItem="YKe-Zx-hwD" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="TZp-uK-QUd"/>
+                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="YlB-bS-fW8"/>
+                            <constraint firstItem="YKe-Zx-hwD" firstAttribute="top" secondItem="S80-pq-CyS" secondAttribute="bottom" constant="36" id="ijn-Yv-ab4"/>
+                            <constraint firstItem="S80-pq-CyS" firstAttribute="top" secondItem="6aG-8w-agg" secondAttribute="top" constant="72" id="o0D-14-LzN"/>
+                            <constraint firstItem="Kfj-BR-9Cy" firstAttribute="top" secondItem="YKe-Zx-hwD" secondAttribute="bottom" constant="8" id="sz9-Dy-ktq"/>
+                            <constraint firstItem="7lV-HJ-ZZO" firstAttribute="top" secondItem="4ZQ-gT-FOR" secondAttribute="bottom" constant="8" id="tQ2-15-VV1"/>
+                            <constraint firstItem="S80-pq-CyS" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="uIA-m9-fAX"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6aG-8w-agg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Y0o-t5-mbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-751.20000000000005" y="98.50074962518741"/>
         </scene>
     </scenes>
 </document>
