@@ -11,7 +11,7 @@ import GameplayKit
 
 class GameScene: SKScene {
     
-    var visibleBall = SKShapeNode()
+    var visibleBall = SKSpriteNode()
     var tappableBall = SKShapeNode()
     
     var scoreLabel = SKLabelNode()
@@ -23,6 +23,7 @@ class GameScene: SKScene {
     override func didMove(to view: SKView) {
         setUpBalls()
         setUpScoreLabel()
+        setUpBackground()
     }
     
     
@@ -42,6 +43,8 @@ class GameScene: SKScene {
         if lost{
             setUpBalls()
             setUpScoreLabel()
+            setUpBackground()
+
             lost = false
         }
         else{
@@ -56,6 +59,8 @@ class GameScene: SKScene {
                         setUpBalls()
                         score += 1
                         setUpScoreLabel()
+                        setUpBackground()
+
                     }
                 }
                 else{
@@ -80,25 +85,21 @@ class GameScene: SKScene {
     
     func setUpBalls(){
         removeAllChildren()
-        self.backgroundColor = .darkGray
-        
-        var ballX = Int(arc4random_uniform(UInt32(frame.maxX)))
-        let ballY = Int(arc4random_uniform(UInt32(frame.maxY)))
+
+        var ballX = Int(arc4random_uniform(UInt32(frame.maxX-50)))
+        let ballY = Int(arc4random_uniform(UInt32(frame.maxY-50)))
         let qSelector = arc4random_uniform(2)
         
         if(qSelector == 1){
             ballX *= -1
         }
-        
-        visibleBall = SKShapeNode(circleOfRadius: 100)
-        tappableBall = SKShapeNode(circleOfRadius: 100)
-        visibleBall.lineWidth = 1
-        visibleBall.fillColor = .blue
-        visibleBall.strokeColor = .white
-        visibleBall.glowWidth = 0.5
+        let circleSprite = SKTexture(imageNamed: "circle")
+        visibleBall = SKSpriteNode(texture: circleSprite)
+        tappableBall = SKShapeNode(circleOfRadius: 50)
+        visibleBall.scale(to: CGSize(width: 100, height: 100))
         visibleBall.position = CGPoint(x: Int(ballX), y: Int(ballY))
         tappableBall.position = CGPoint(x: -ballX, y: -ballY)
-        
+
         tappableBall.name = "tappable"
         
         addChild(visibleBall)
@@ -114,9 +115,18 @@ class GameScene: SKScene {
         addChild(scoreLabel)
     }
     
+    func setUpBackground(){
+        let image = SKTexture(imageNamed: "background")
+        let backgroundSprite = SKSpriteNode(texture: image)
+        backgroundSprite.zPosition = -1
+        backgroundSprite.position = CGPoint(x: 0, y: 0)
+        addChild(backgroundSprite)
+    }
+    
     func lose(){
         self.backgroundColor = .red
         scoreLabel.text = "FAT L"
+        scoreLabel.fontSize = 100
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         self.removeAllChildren()
         addChild(scoreLabel)
