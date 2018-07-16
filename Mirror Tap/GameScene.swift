@@ -87,7 +87,10 @@ class GameScene: SKScene {
         removeAllChildren()
 
         var ballX = Int(arc4random_uniform(UInt32(frame.maxX-50)))
-        let ballY = Int(arc4random_uniform(UInt32(frame.maxY-50)))
+        var ballY = Int(arc4random_uniform(UInt32(frame.maxY-50)))
+        if(ballY < 50){
+            ballY = 50
+        }
         let qSelector = arc4random_uniform(2)
         
         if(qSelector == 1){
@@ -101,6 +104,7 @@ class GameScene: SKScene {
         tappableBall.position = CGPoint(x: -ballX, y: -ballY)
 
         tappableBall.name = "tappable"
+        tappableBall.alpha = 0.1
         
         addChild(visibleBall)
         addChild(tappableBall)
@@ -111,7 +115,7 @@ class GameScene: SKScene {
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 30)
         scoreLabel.text = String(score)
         scoreLabel.fontSize = 30
-        scoreLabel.fontColor = .white
+        scoreLabel.fontColor = .black
         addChild(scoreLabel)
     }
     
