@@ -33,7 +33,18 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        setUpBalls()
+        for touch in touches{
+            let positionInScene = touch.location(in: self)
+            let touchedNode = self.atPoint(positionInScene)
+            
+            if let name = touchedNode.name
+            {
+                if name == "tappable"
+                {
+                    setUpBalls()
+                }
+            }
+        }
     }
     
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -66,6 +77,8 @@ class GameScene: SKScene {
         visibleBall.glowWidth = 0.5
         visibleBall.position = CGPoint(x: Int(ballX), y: Int(ballY))
         tappableBall.position = CGPoint(x: -ballX, y: -ballY)
+        
+        tappableBall.name = "tappable"
         
         addChild(visibleBall)
         addChild(tappableBall)
