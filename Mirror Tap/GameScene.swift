@@ -16,6 +16,7 @@ class GameScene: SKScene {
     
     var scoreLabel = SKLabelNode()
     
+    var lost = false
     
     var score = 0
     
@@ -26,11 +27,11 @@ class GameScene: SKScene {
     
     
     func touchDown(atPoint pos : CGPoint) {
-    
+        
     }
     
     func touchMoved(toPoint pos : CGPoint) {
-    
+        
     }
     
     func touchUp(atPoint pos : CGPoint) {
@@ -38,22 +39,29 @@ class GameScene: SKScene {
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        for touch in touches{
-            let positionInScene = touch.location(in: self)
-            let touchedNode = self.atPoint(positionInScene)
-            
-            if let name = touchedNode.name
-            {
-                if name == "tappable"
-                {
-                    setUpBalls()
-                    score += 1
-                    setUpScoreLabel()
-                }
-            }
-            else{
-                print("Loss")
+        if lost{
+            setUpBalls()
+            setUpScoreLabel()
+            lost = false
+        }
+        else{
+            for touch in touches{
+                let positionInScene = touch.location(in: self)
+                let touchedNode = self.atPoint(positionInScene)
                 
+                if let name = touchedNode.name
+                {
+                    if name == "tappable"
+                    {
+                        setUpBalls()
+                        score += 1
+                        setUpScoreLabel()
+                    }
+                }
+                else{
+                    print("Loss")
+                    lose()
+                }
             }
         }
     }
@@ -72,7 +80,7 @@ class GameScene: SKScene {
     
     func setUpBalls(){
         removeAllChildren()
-        
+        self.backgroundColor = .darkGray
         
         var ballX = Int(arc4random_uniform(UInt32(frame.maxX)))
         let ballY = Int(arc4random_uniform(UInt32(frame.maxY)))
@@ -97,13 +105,23 @@ class GameScene: SKScene {
         addChild(tappableBall)
         print("BALL\n\(score)")
     }
-   
+    
     func setUpScoreLabel(){
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 30)
         scoreLabel.text = String(score)
         scoreLabel.fontSize = 30
         scoreLabel.fontColor = .white
         addChild(scoreLabel)
+    }
+    
+    func lose(){
+        self.backgroundColor = .red
+        scoreLabel.text = "FAT L"
+        scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        self.removeAllChildren()
+        addChild(scoreLabel)
+        score = 0
+        lost = true
     }
     
     override func update(_ currentTime: TimeInterval) {
