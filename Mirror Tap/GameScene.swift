@@ -15,14 +15,14 @@ class GameScene: SKScene {
     var tappableBall = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var lost = false
-    var score = 0
-    var highscore = Int()
+    var score = [0]
+    var highscore = [0]
     var defaults = UserDefaults.standard
     
     
     override func didMove(to view: SKView) {
         if let savedData = defaults.object(forKey: "dataz") as? Data{
-            if let decoded = try? JSONDecoder().decode(Int.self, from: savedData){
+            if let decoded = try? JSONDecoder().decode([Int].self, from: savedData){
                 print("dec\(decoded)")
                 highscore = decoded
             }
@@ -64,7 +64,7 @@ class GameScene: SKScene {
                     if name == "tappable"
                     {
                         setUpBalls()
-                        score += 1
+                        score[0] += 1
                         setUpScoreLabel()
                         setUpBackground()
 
@@ -119,9 +119,9 @@ class GameScene: SKScene {
     }
     
     func setUpScoreLabel(){
-        scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 30)
-        scoreLabel.text = String(score)
-        scoreLabel.fontSize = 30
+        scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
+        scoreLabel.text = String(score[0])
+        scoreLabel.fontSize = 100
         scoreLabel.fontColor = .black
         addChild(scoreLabel)
     }
@@ -135,9 +135,10 @@ class GameScene: SKScene {
     }
     
     func saveScore(){
-        if score > highscore{
+        if score[0] > highscore[0]{
             if let encoded = try? JSONEncoder().encode(score){
                 defaults.set(encoded, forKey : "dataz")
+                print("this ihuvhli;ofdyuof")
             }
             print("saved")
         }
@@ -151,7 +152,7 @@ class GameScene: SKScene {
         self.removeAllChildren()
         addChild(scoreLabel)
         saveScore()
-        score = 0
+        score = [0]
         lost = true
     }
     
