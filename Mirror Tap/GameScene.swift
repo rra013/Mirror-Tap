@@ -13,14 +13,21 @@ class GameScene: SKScene {
     
     var visibleBall = SKSpriteNode()
     var tappableBall = SKShapeNode()
-    
     var scoreLabel = SKLabelNode()
-    
     var lost = false
-    
     var score = 0
+    var highscore = Int()
+    var defaults = UserDefaults.standard
+    
     
     override func didMove(to view: SKView) {
+        if let savedData = defaults.object(forKey: "dataz") as? Data{
+            if let decoded = try? JSONDecoder().decode(Int.self, from: savedData){
+                print("dec\(decoded)")
+                highscore = decoded
+            }
+        }
+        print("hs:\(highscore)")
         setUpBalls()
         setUpScoreLabel()
         setUpBackground()
@@ -89,7 +96,7 @@ class GameScene: SKScene {
         var ballX = Int(arc4random_uniform(UInt32(frame.maxX-50)))
         var ballY = Int(arc4random_uniform(UInt32(frame.maxY-50)))
         if(ballY < 50){
-            ballY = 50
+            ballY = 60
         }
         let qSelector = arc4random_uniform(2)
         
@@ -127,6 +134,15 @@ class GameScene: SKScene {
         addChild(backgroundSprite)
     }
     
+    func saveScore(){
+        if score > highscore{
+            if let encoded = try? JSONEncoder().encode(score){
+                defaults.set(encoded, forKey : "dataz")
+            }
+            print("saved")
+        }
+    }
+    
     func lose(){
         self.backgroundColor = .red
         scoreLabel.text = "FAT L"
@@ -134,6 +150,7 @@ class GameScene: SKScene {
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         self.removeAllChildren()
         addChild(scoreLabel)
+        saveScore()
         score = 0
         lost = true
     }
