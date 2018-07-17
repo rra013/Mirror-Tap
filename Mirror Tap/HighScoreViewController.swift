@@ -9,7 +9,7 @@
 import UIKit
 
 class HighScoreViewController: UIViewController {
-    var highscore = [0]
+    var scores = [[0], [0]]
     var defaults = UserDefaults.standard
     
     @IBOutlet weak var hardHighscore: UILabel!
@@ -17,12 +17,12 @@ class HighScoreViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         if let savedData = defaults.object(forKey: "dataz") as? Data{
-            if let decoded = try? JSONDecoder().decode([Int].self, from: savedData){
+            if let decoded = try? JSONDecoder().decode([[Int]].self, from: savedData){
                 print("dec\(decoded)")
-                highscore = decoded
+                scores = decoded
             }
         }
-        hardHighscore.text = "Highscore: \(highscore[0])"
+        hardHighscore.text = "Highscore: \(scores[1][0])"
         
 
         // Do any additional setup after loading the view.

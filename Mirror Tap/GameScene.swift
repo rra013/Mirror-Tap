@@ -15,19 +15,18 @@ class GameScene: SKScene {
     var tappableBall = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var lost = false
-    var score = [0]
-    var highscore = [0]
+    var scores = [[0], [0]]
     var defaults = UserDefaults.standard
     
     
     override func didMove(to view: SKView) {
         if let savedData = defaults.object(forKey: "dataz") as? Data{
-            if let decoded = try? JSONDecoder().decode([Int].self, from: savedData){
+            if let decoded = try? JSONDecoder().decode([[Int]].self, from: savedData){
                 print("dec\(decoded)")
-                highscore = decoded
+                scores = decoded
             }
         }
-        print("hs:\(highscore)")
+        print("hs:\(scores[1][0])")
         setUpBalls()
         setUpScoreLabel()
         setUpBackground()
@@ -64,7 +63,7 @@ class GameScene: SKScene {
                     if name == "tappable"
                     {
                         setUpBalls()
-                        score[0] += 1
+                        scores[0][0] += 1
                         setUpScoreLabel()
                         setUpBackground()
 
@@ -75,6 +74,7 @@ class GameScene: SKScene {
                     lose()
                 }
             }
+            saveScore()
         }
     }
     
@@ -114,12 +114,12 @@ class GameScene: SKScene {
         
         addChild(visibleBall)
         addChild(tappableBall)
-        print("BALL\n\(score)")
+        print("BALL\n\(scores)")
     }
     
     func setUpScoreLabel(){
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
-        scoreLabel.text = String(score[0])
+        scoreLabel.text = String(scores[0][0])
         scoreLabel.fontSize = 100
         scoreLabel.fontColor = .black
         addChild(scoreLabel)
@@ -134,13 +134,18 @@ class GameScene: SKScene {
     }
     
     func saveScore(){
-        if score[0] > highscore[0]{
-            if let encoded = try? JSONEncoder().encode(score){
-                defaults.set(encoded, forKey : "dataz")
-                print("saved")
-            }
-            print("saved?")
+        if scores[0][0] > scores[1][0]{
+            scores[1] = scores[0]
         }
+        if let encoded = try? JSONEncoder().encode(scores){
+            defaults.set(encoded, forKey : "dataz")
+            print("saved")
+        }
+        print("saved?")
+    }
+    
+    @IBAction func backClicked(_ sender: Any) {
+        
     }
     
     func lose(){
@@ -151,7 +156,7 @@ class GameScene: SKScene {
         self.removeAllChildren()
         addChild(scoreLabel)
         saveScore()
-        score = [0]
+        scores[0][0] = 0
         lost = true
     }
     
