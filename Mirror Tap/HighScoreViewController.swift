@@ -27,7 +27,7 @@ class HighScoreViewController: UIViewController {
                 scores = decoded
             }
             if playMusic {
-                playSoundWithFileName(file: "MirrorTap", fileExt: "mp3")
+                playSoundWithFileName(file: "mirrortap2", fileExt: "mp3")
                 playMusic = false
             }
         }
@@ -66,6 +66,7 @@ class HighScoreViewController: UIViewController {
                 audioPlayer = try AVAudioPlayer.init(contentsOf: audioSourceURL!)
                 audioPlayer?.prepareToPlay()
                 audioPlayer?.play()
+                audioPlayer?.numberOfLoops = -1
             
             } catch{
                 print(error)
