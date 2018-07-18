@@ -8,11 +8,14 @@
 
 import UIKit
 import AVFoundation
+
+var playMusic = true //global
+
 class HighScoreViewController: UIViewController {
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
     var audioPlayer: AVAudioPlayer?
-    var playMusic = true
+    //var playMusic = true
     @IBOutlet weak var hardHighscore: UILabel!
     
     override func viewDidLoad() {
