@@ -42,6 +42,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SZV-WD-TEh" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="-1188" y="-1359"/>
         </scene>
         <!--Main Screen-->
         <scene sceneID="JYk-QX-6Q7">
@@ -70,12 +71,6 @@
                                     <segue destination="BV1-FR-VrT" kind="show" id="pz5-xD-elp"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-BR-9Cy">
-                                <rect key="frame" x="136" y="441" width="103" height="25"/>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="N1K-Tp-B3X">
                                 <rect key="frame" x="31" y="90" width="313" height="87"/>
                                 <constraints>
@@ -89,14 +84,44 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyY-Zh-CsP">
+                                <rect key="frame" x="135" y="592" width="106" height="55"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.96078431369999995" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="vYP-9L-PHC"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <state key="normal" title="Tutorial">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="wGF-uj-OB9" kind="show" id="gxn-mm-4Xm"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="High Score" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Kfj-BR-9Cy">
+                                <rect key="frame" x="76" y="441" width="223" height="25"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="223" id="Rv7-a9-Tiu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.89803921568627454" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Kfj-BR-9Cy" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="3cR-2R-nfK"/>
+                            <constraint firstItem="6aG-8w-agg" firstAttribute="bottom" secondItem="fyY-Zh-CsP" secondAttribute="bottom" constant="20" id="Drt-ki-wFn"/>
                             <constraint firstItem="N1K-Tp-B3X" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="NJe-Vf-aNN"/>
                             <constraint firstItem="YKe-Zx-hwD" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="ZuZ-Bp-SEs"/>
                             <constraint firstItem="Kfj-BR-9Cy" firstAttribute="top" secondItem="YKe-Zx-hwD" secondAttribute="bottom" constant="80" id="gtR-oy-l48"/>
                             <constraint firstItem="YKe-Zx-hwD" firstAttribute="centerY" secondItem="zXe-5E-YQY" secondAttribute="centerY" id="i1a-zP-rd3"/>
+                            <constraint firstItem="fyY-Zh-CsP" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="mAa-ew-S8u"/>
                             <constraint firstItem="N1K-Tp-B3X" firstAttribute="top" secondItem="6aG-8w-agg" secondAttribute="top" constant="70" id="nNJ-5b-S5m"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6aG-8w-agg"/>
@@ -107,11 +132,99 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0o-t5-mbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-751.20000000000005" y="98.50074962518741"/>
+            <point key="canvasLocation" x="885.60000000000002" y="-457.42128935532236"/>
+        </scene>
+        <!--Main Screen-->
+        <scene sceneID="WkL-Ed-DMS">
+            <objects>
+                <viewController title="Main Screen" id="wGF-uj-OB9" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="jDr-yB-bxU">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2iC-cM-69Z">
+                                <rect key="frame" x="31" y="90" width="313" height="87"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="313" id="3MJ-tl-Dee"/>
+                                    <constraint firstAttribute="height" constant="87" id="rOd-WS-LV1"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="logo"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="enb-H2-Tij">
+                                <rect key="frame" x="0.0" y="214" width="375" height="200"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="1Ne-nY-F8b"/>
+                                </constraints>
+                                <string key="text">Click the ball on the black portion of the screen to earn points. A ball at the inverse position of the clickable ball will be shown to guide you.</string>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LK3-85-Wjd">
+                                <rect key="frame" x="145" y="422" width="84" height="55"/>
+                                <color key="backgroundColor" red="0.88235294119999996" green="0.96078431369999995" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="55" id="jJG-zQ-4Tk"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
+                                <state key="normal" title=" Start ">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                        <integer key="value" value="15"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <segue destination="BV1-FR-VrT" kind="show" id="GdL-XJ-tWh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dwu-TU-KcB">
+                                <rect key="frame" x="16" y="20" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="E8T-Bj-0mE"/>
+                                    <constraint firstAttribute="width" constant="30" id="P8o-wu-hdy"/>
+                                </constraints>
+                                <state key="normal" title="Back" image="back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="1n0-Ei-rlD" kind="show" id="gr3-iL-B0b"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92941176469999998" green="0.8980392157" blue="0.4549019608" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstItem="enb-H2-Tij" firstAttribute="leading" secondItem="gBP-yw-o5n" secondAttribute="leading" id="2XF-A5-mIZ"/>
+                            <constraint firstItem="enb-H2-Tij" firstAttribute="trailing" secondItem="gBP-yw-o5n" secondAttribute="trailing" id="8I7-Qd-FOZ"/>
+                            <constraint firstItem="enb-H2-Tij" firstAttribute="top" secondItem="2iC-cM-69Z" secondAttribute="bottom" constant="37" id="BFA-oL-A7l"/>
+                            <constraint firstItem="2iC-cM-69Z" firstAttribute="centerX" secondItem="jDr-yB-bxU" secondAttribute="centerX" id="DJw-c8-718"/>
+                            <constraint firstItem="LK3-85-Wjd" firstAttribute="top" secondItem="enb-H2-Tij" secondAttribute="bottom" constant="8" id="DR2-P5-wMg"/>
+                            <constraint firstItem="enb-H2-Tij" firstAttribute="centerX" secondItem="jDr-yB-bxU" secondAttribute="centerX" id="L0E-Sn-EZc"/>
+                            <constraint firstItem="dwu-TU-KcB" firstAttribute="leading" secondItem="gBP-yw-o5n" secondAttribute="leading" constant="16" id="NUL-TV-Ohd"/>
+                            <constraint firstItem="LK3-85-Wjd" firstAttribute="centerX" secondItem="jDr-yB-bxU" secondAttribute="centerX" id="RWo-r8-ftg"/>
+                            <constraint firstItem="2iC-cM-69Z" firstAttribute="top" secondItem="gBP-yw-o5n" secondAttribute="top" constant="70" id="qtV-KU-xmI"/>
+                            <constraint firstItem="dwu-TU-KcB" firstAttribute="top" secondItem="gBP-yw-o5n" secondAttribute="top" id="vcn-QW-Uvf"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="gBP-yw-o5n"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="EfU-XJ-n07" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1188" y="-456"/>
         </scene>
     </scenes>
     <resources>
         <image name="back" width="512" height="512"/>
         <image name="logo" width="2614" height="744"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="gr3-iL-B0b"/>
+        <segue reference="pz5-xD-elp"/>
+    </inferredMetricsTieBreakers>
 </document>
