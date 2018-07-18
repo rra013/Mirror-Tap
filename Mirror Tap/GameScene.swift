@@ -78,11 +78,13 @@ class GameScene: SKScene {
     var visibleBall = SKSpriteNode()
     var tappableBall = SKShapeNode()
     var scoreLabel = SKLabelNode()
+    var timerLabel = SKLabelNode()
     var lost = false
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
-    
-
+    var timer = Timer()
+    var countDownTimer = Timer()
+    var timeRemaining = 2.0
     
 
     
@@ -97,6 +99,7 @@ class GameScene: SKScene {
         setUpBalls()
         setUpScoreLabel()
         setUpBackground()
+        setUpTimer()
     }
     
     
@@ -117,7 +120,7 @@ class GameScene: SKScene {
             setUpBalls()
             setUpScoreLabel()
             setUpBackground()
-
+            setUpTimer()
             lost = false
         }
         else{
@@ -133,7 +136,7 @@ class GameScene: SKScene {
                         scores[0][0] += 1
                         setUpScoreLabel()
                         setUpBackground()
-
+                        setUpTimer()
                     }
                 }
                 else{
@@ -222,7 +225,7 @@ class GameScene: SKScene {
         
     }
     
-    func lose(){
+    @objc func lose(){
         self.backgroundColor = UIColor(red:1.00, green:0.31, blue:0.31, alpha:1.0)
         scoreLabel.text = "You Lost!"
         scoreLabel.fontSize = 100
@@ -239,4 +242,22 @@ class GameScene: SKScene {
         // Called before each frame is rendered
     }
 
+    @objc func updateCountdown(){
+        timeRemaining -= 0.1
+        if(timeRemaining <= 0){
+            countDownTimer.invalidate()
+        }
+        timerLabel.text = String(format: "%.1f", timeRemaining)
+    }
+    
+    func setUpTimer(){
+        timerLabel.position = CGPoint(x: frame.midX, y: frame.minY + 100)
+        timerLabel.fontSize = 100
+        timer.invalidate()
+        timeRemaining = 2.0
+        timer = Timer.scheduledTimer(timeInterval: 2, target: self,   selector: (#selector(self.lose)), userInfo: nil, repeats: true)
+        countDownTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self,   selector: (#selector(updateCountdown)), userInfo: nil, repeats: true)
+        addChild(timerLabel)
+    }
+    
 }
