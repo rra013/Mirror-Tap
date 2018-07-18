@@ -85,13 +85,13 @@
                                 </userDefinedRuntimeAttributes>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fyY-Zh-CsP">
-                                <rect key="frame" x="135" y="592" width="106" height="55"/>
+                                <rect key="frame" x="148" y="592" width="80" height="55"/>
                                 <color key="backgroundColor" red="0.88235294119999996" green="0.96078431369999995" blue="0.76862745099999996" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="55" id="vYP-9L-PHC"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="30"/>
-                                <state key="normal" title="Tutorial">
+                                <fontDescription key="fontDescription" name="Didot" family="Didot" pointSize="20"/>
+                                <state key="normal" title=" Tutorial ">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <userDefinedRuntimeAttributes>
@@ -112,12 +112,25 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNy-cV-VPx">
+                                <rect key="frame" x="309" y="594.5" width="50" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="i7I-yD-dRc"/>
+                                    <constraint firstAttribute="width" constant="50" id="vNp-ih-4P0"/>
+                                </constraints>
+                                <state key="normal" title="Button" image="speaker"/>
+                                <connections>
+                                    <action selector="muteButtonTapped:" destination="1n0-Ei-rlD" eventType="touchUpInside" id="OEk-Hh-PeK"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.92941176470588238" green="0.89803921568627454" blue="0.45490196078431372" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="Kfj-BR-9Cy" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="3cR-2R-nfK"/>
                             <constraint firstItem="6aG-8w-agg" firstAttribute="bottom" secondItem="fyY-Zh-CsP" secondAttribute="bottom" constant="20" id="Drt-ki-wFn"/>
                             <constraint firstItem="N1K-Tp-B3X" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="NJe-Vf-aNN"/>
+                            <constraint firstItem="6aG-8w-agg" firstAttribute="trailing" secondItem="QNy-cV-VPx" secondAttribute="trailing" constant="16" id="TX8-In-Y5M"/>
+                            <constraint firstItem="QNy-cV-VPx" firstAttribute="centerY" secondItem="fyY-Zh-CsP" secondAttribute="centerY" id="Zof-tS-x3q"/>
                             <constraint firstItem="YKe-Zx-hwD" firstAttribute="centerX" secondItem="zXe-5E-YQY" secondAttribute="centerX" id="ZuZ-Bp-SEs"/>
                             <constraint firstItem="Kfj-BR-9Cy" firstAttribute="top" secondItem="YKe-Zx-hwD" secondAttribute="bottom" constant="80" id="gtR-oy-l48"/>
                             <constraint firstItem="YKe-Zx-hwD" firstAttribute="centerY" secondItem="zXe-5E-YQY" secondAttribute="centerY" id="i1a-zP-rd3"/>
@@ -128,6 +141,7 @@
                     </view>
                     <connections>
                         <outlet property="hardHighscore" destination="Kfj-BR-9Cy" id="A63-fW-stb"/>
+                        <outlet property="soundButton" destination="QNy-cV-VPx" id="FZ7-rF-4JX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Y0o-t5-mbS" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -222,6 +236,7 @@
     <resources>
         <image name="back" width="512" height="512"/>
         <image name="logo" width="2614" height="744"/>
+        <image name="speaker" width="1600" height="1600"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gr3-iL-B0b"/>

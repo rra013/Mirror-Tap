@@ -17,6 +17,7 @@ class HighScoreViewController: UIViewController {
     var audioPlayer: AVAudioPlayer?
     //var playMusic = true
     @IBOutlet weak var hardHighscore: UILabel!
+    @IBOutlet weak var soundButton: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -39,6 +40,17 @@ class HighScoreViewController: UIViewController {
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
+    }
+    
+    @IBAction func muteButtonTapped(_ sender: Any) {
+        if soundButton.currentImage == #imageLiteral(resourceName: "speaker"){
+            audioPlayer?.pause()
+            soundButton.setImage(#imageLiteral(resourceName: "speakerMuted"), for: .normal)
+        }
+        else{
+            audioPlayer?.play()
+            soundButton.setImage(#imageLiteral(resourceName: "speaker"), for: .normal)
+        }
     }
     
     func playSoundWithFileName(file: String, fileExt: String)-> Void {
