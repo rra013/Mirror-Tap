@@ -10,11 +10,12 @@ import UIKit
 import AVFoundation
 
 var playMusic = true //global
+var audioPlayer: AVAudioPlayer?
 
 class HighScoreViewController: UIViewController {
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
-    var audioPlayer: AVAudioPlayer?
+
     //var playMusic = true
     @IBOutlet weak var hardHighscore: UILabel!
     @IBOutlet weak var soundButton: UIButton!
