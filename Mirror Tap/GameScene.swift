@@ -8,7 +8,7 @@
 
 import SpriteKit
 import GameplayKit
-import AVFoundation
+
 
 class GameScene: SKScene {
     
@@ -82,9 +82,9 @@ class GameScene: SKScene {
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
     
-    var playMusic = true
+
     
-    var audioPlayer: AVAudioPlayer?
+
     
     override func didMove(to view: SKView) {
         if let savedData = defaults.object(forKey: "dataz") as? Data{
@@ -97,9 +97,6 @@ class GameScene: SKScene {
         setUpBalls()
         setUpScoreLabel()
         setUpBackground()
-        if playMusic{
-            playSoundWithFileName(file: "MirrorTap", fileExt: "mp3")
-        }
     }
     
     
@@ -241,22 +238,5 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
-    func playSoundWithFileName(file: String, fileExt: String)-> Void {
-        let audioSourceURL: URL!
-        
-        audioSourceURL = Bundle.main.url(forResource: file, withExtension: fileExt)
-        
-        if audioSourceURL == nil{
-            print("No Audio")
-        }
-        else{
-            do {
-                audioPlayer = try AVAudioPlayer.init(contentsOf: audioSourceURL!)
-                audioPlayer?.prepareToPlay()
-                audioPlayer?.play()
-            } catch{
-                print(error)
-            }
-        }
-    }
+
 }
