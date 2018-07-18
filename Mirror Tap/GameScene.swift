@@ -18,7 +18,6 @@ class GameScene: SKScene {
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
     
-    
     override func didMove(to view: SKView) {
         if let savedData = defaults.object(forKey: "dataz") as? Data{
             if let decoded = try? JSONDecoder().decode([[Int]].self, from: savedData){
@@ -119,9 +118,9 @@ class GameScene: SKScene {
     
     func setUpScoreLabel(){
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
-        scoreLabel.text = String(scores[0][0])
         scoreLabel.fontSize = 100
         scoreLabel.fontColor = .black
+        scoreLabel.text = String(scores[0][0])
         addChild(scoreLabel)
     }
     
@@ -159,6 +158,7 @@ class GameScene: SKScene {
         scores[0][0] = 0
         lost = true
     }
+    
     
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
