@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		0797C3FE20FD25BF00EC38A1 /* HighScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0797C3FD20FD25BF00EC38A1 /* HighScoreViewController.swift */; };
 		07B6B57920FFA61800EDEB6B /* MirrorTap.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07B6B57820FFA61800EDEB6B /* MirrorTap.mp3 */; };
+		07B6B57B20FFB9E100EDEB6B /* mirrortap2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 07B6B57A20FFB9E100EDEB6B /* mirrortap2.mp3 */; };
 		5B4199FE20F9202B00D17143 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5B4199FD20F9202B00D17143 /* AppDelegate.swift */; };
 		5B419A0020F9202B00D17143 /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5B4199FF20F9202B00D17143 /* GameScene.sks */; };
 		5B419A0220F9202B00D17143 /* Actions.sks in Resources */ = {isa = PBXBuildFile; fileRef = 5B419A0120F9202B00D17143 /* Actions.sks */; };
@@ -41,6 +42,7 @@
 /* Begin PBXFileReference section */
 		0797C3FD20FD25BF00EC38A1 /* HighScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HighScoreViewController.swift; sourceTree = "<group>"; };
 		07B6B57820FFA61800EDEB6B /* MirrorTap.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = MirrorTap.mp3; sourceTree = "<group>"; };
+		07B6B57A20FFB9E100EDEB6B /* mirrortap2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = mirrortap2.mp3; sourceTree = "<group>"; };
 		5B4199FA20F9202B00D17143 /* Mirror Tap.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Mirror Tap.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		5B4199FD20F9202B00D17143 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		5B4199FF20F9202B00D17143 /* GameScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = GameScene.sks; sourceTree = "<group>"; };
@@ -107,6 +109,7 @@
 		5B4199FC20F9202B00D17143 /* Mirror Tap */ = {
 			isa = PBXGroup;
 			children = (
+				07B6B57A20FFB9E100EDEB6B /* mirrortap2.mp3 */,
 				07B6B57820FFA61800EDEB6B /* MirrorTap.mp3 */,
 				5B4199FD20F9202B00D17143 /* AppDelegate.swift */,
 				5B4199FF20F9202B00D17143 /* GameScene.sks */,
@@ -249,6 +252,7 @@
 				5B419A0020F9202B00D17143 /* GameScene.sks in Resources */,
 				5B419A0B20F9202D00D17143 /* Assets.xcassets in Resources */,
 				5B419A0E20F9202D00D17143 /* LaunchScreen.storyboard in Resources */,
+				07B6B57B20FFB9E100EDEB6B /* mirrortap2.mp3 in Resources */,
 				5B419A0220F9202B00D17143 /* Actions.sks in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
