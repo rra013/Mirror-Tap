@@ -79,13 +79,13 @@ class GameScene: SKScene {
     var tappableBall = SKShapeNode()
     var scoreLabel = SKLabelNode()
     var timerLabel = SKLabelNode()
+    var tapLabel = SKLabelNode()
     var lost = false
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
     var countDownTimer = Timer()
     var timeRemaining = 5.0
     var originalTime = 5.0
-
     
     override func didMove(to view: SKView) {
         timeRemaining = originalTime
@@ -117,6 +117,7 @@ class GameScene: SKScene {
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if lost{
+            self.removeAllChildren()
             setUpBalls()
             setUpScoreLabel()
             setUpBackground()
@@ -226,16 +227,17 @@ class GameScene: SKScene {
     }
     
     @objc func lose(){
+        self.removeAllChildren()
         self.backgroundColor = UIColor(red:1.00, green:0.31, blue:0.31, alpha:1.0)
         scoreLabel.text = "You Lost!"
         scoreLabel.fontSize = 100
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
-        self.removeAllChildren()
+        tapLabel.text = "Tap to try again"
+        tapLabel.position = timerLabel.position
+        tapLabel.fontColor = .black
+        tapLabel.fontSize = 50
         addChild(scoreLabel)
-        timerLabel.text = "Tap to play again"
-        timerLabel.fontColor = .black
-        timerLabel.fontSize = 50
-        addChild(timerLabel)
+        addChild(tapLabel)
         saveScore()
         scores[0][0] = 0
         countDownTimer.invalidate()
@@ -246,7 +248,7 @@ class GameScene: SKScene {
     override func update(_ currentTime: TimeInterval) {
         // Called before each frame is rendered
     }
-
+    
     @objc func updateCountdown(){
         timeRemaining -= 0.1
         if(timeRemaining <= 0){
