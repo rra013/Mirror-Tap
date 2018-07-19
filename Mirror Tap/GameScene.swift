@@ -161,7 +161,7 @@ class GameScene: SKScene {
     
     func setUpBalls(){
         removeAllChildren()
-
+        countDownTimer.invalidate()
         var ballX = Int(arc4random_uniform(UInt32(frame.maxX-50)))
         var ballY = Int(arc4random_uniform(UInt32(frame.maxY-60)))
         if(ballY < 50){
