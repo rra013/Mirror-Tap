@@ -232,6 +232,10 @@ class GameScene: SKScene {
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
         self.removeAllChildren()
         addChild(scoreLabel)
+        timerLabel.text = "Tap to play again"
+        timerLabel.fontColor = .black
+        timerLabel.fontSize = 50
+        addChild(timerLabel)
         saveScore()
         scores[0][0] = 0
         countDownTimer.invalidate()
