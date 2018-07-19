@@ -82,9 +82,8 @@ class GameScene: SKScene {
     var lost = false
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
-    var timer = Timer()
     var countDownTimer = Timer()
-    var timeRemaining = 2.0
+    var timeRemaining = 5.0
     
 
     
@@ -234,6 +233,7 @@ class GameScene: SKScene {
         addChild(scoreLabel)
         saveScore()
         scores[0][0] = 0
+        countDownTimer.invalidate()
         lost = true
     }
     
@@ -246,6 +246,8 @@ class GameScene: SKScene {
         timeRemaining -= 0.1
         if(timeRemaining <= 0){
             countDownTimer.invalidate()
+            timeRemaining = 5.0
+            lose()
         }
         timerLabel.text = String(format: "%.1f", timeRemaining)
     }
@@ -253,9 +255,7 @@ class GameScene: SKScene {
     func setUpTimer(){
         timerLabel.position = CGPoint(x: frame.midX, y: frame.minY + 100)
         timerLabel.fontSize = 100
-        timer.invalidate()
-        timeRemaining = 2.0
-        timer = Timer.scheduledTimer(timeInterval: 2, target: self,   selector: (#selector(self.lose)), userInfo: nil, repeats: true)
+        timeRemaining = 5.0
         countDownTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self,   selector: (#selector(updateCountdown)), userInfo: nil, repeats: true)
         addChild(timerLabel)
     }
