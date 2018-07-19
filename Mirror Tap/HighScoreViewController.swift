@@ -27,10 +27,6 @@ class HighScoreViewController: UIViewController {
                 print("dec\(decoded)")
                 scores = decoded
             }
-            if playMusic {
-                playSoundWithFileName(file: "mirrortap2", fileExt: "mp3")
-                playMusic = false
-            }
         }
         hardHighscore.text = "Highscore: \(scores[1][0])"
         
@@ -39,13 +35,16 @@ class HighScoreViewController: UIViewController {
     }
 
     override func viewWillAppear(_ animated: Bool) {
+        if playMusic {
+            playSoundWithFileName(file: "mirrortap2", fileExt: "mp3")
+            playMusic = false
+        }
         if !(audioPlayer?.isPlaying)!{
             soundButton.setImage(#imageLiteral(resourceName: "speakerMuted"), for: .normal)
         }
         if (audioPlayer?.isPlaying)!{
             soundButton.setImage(#imageLiteral(resourceName: "speaker"), for: .normal)
         }
-
     }
     
     override func didReceiveMemoryWarning() {
