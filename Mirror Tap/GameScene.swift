@@ -259,6 +259,7 @@ class GameScene: SKScene {
         timeRemaining = originalTime
         countDownTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self,   selector: (#selector(updateCountdown)), userInfo: nil, repeats: true)
         addChild(timerLabel)
+        tappableBall.zPosition = 1
     }
     
 }
