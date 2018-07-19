@@ -38,6 +38,16 @@ class HighScoreViewController: UIViewController {
         // Do any additional setup after loading the view.
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        if !(audioPlayer?.isPlaying)!{
+            soundButton.setImage(#imageLiteral(resourceName: "speakerMuted"), for: .normal)
+        }
+        if (audioPlayer?.isPlaying)!{
+            soundButton.setImage(#imageLiteral(resourceName: "speaker"), for: .normal)
+        }
+
+    }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
