@@ -84,10 +84,11 @@ class GameScene: SKScene {
     var defaults = UserDefaults.standard
     var countDownTimer = Timer()
     var timeRemaining = 5.0
-    
+    var originalTime = 5.0
 
     
     override func didMove(to view: SKView) {
+        timeRemaining = originalTime
         if let savedData = defaults.object(forKey: "dataz") as? Data{
             if let decoded = try? JSONDecoder().decode([[Int]].self, from: savedData){
                 print("dec\(decoded)")
@@ -246,7 +247,7 @@ class GameScene: SKScene {
         timeRemaining -= 0.1
         if(timeRemaining <= 0){
             countDownTimer.invalidate()
-            timeRemaining = 5.0
+            timeRemaining = originalTime
             lose()
         }
         timerLabel.text = String(format: "%.1f", timeRemaining)
@@ -255,7 +256,7 @@ class GameScene: SKScene {
     func setUpTimer(){
         timerLabel.position = CGPoint(x: frame.midX, y: frame.minY + 100)
         timerLabel.fontSize = 100
-        timeRemaining = 5.0
+        timeRemaining = originalTime
         countDownTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self,   selector: (#selector(updateCountdown)), userInfo: nil, repeats: true)
         addChild(timerLabel)
     }
