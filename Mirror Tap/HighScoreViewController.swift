@@ -16,7 +16,6 @@ class HighScoreViewController: UIViewController {
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
 
-    //var playMusic = true
     @IBOutlet weak var hardHighscore: UILabel!
     @IBOutlet weak var soundButton: UIButton!
     

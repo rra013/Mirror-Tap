@@ -41,6 +41,9 @@ class GameScene: SKScene {
             case "iPhone10,1", "iPhone10,4":                return "iPhone 8"
             case "iPhone10,2", "iPhone10,5":                return "iPhone 8 Plus"
             case "iPhone10,3", "iPhone10,6":                return "iPhone X"
+            case "iPhone11,8":                              return "iPhone Xr"
+            case "iPhone11,2":                              return "iPhone Xs"
+            case "iPhone 11,4", "Simulator iPhone11,4":     return "iPhone XMax"
             case "iPad2,1", "iPad2,2", "iPad2,3", "iPad2,4":return "iPad 2"
             case "iPad3,1", "iPad3,2", "iPad3,3":           return "iPad 3"
             case "iPad3,4", "iPad3,5", "iPad3,6":           return "iPad 4"
@@ -80,6 +83,7 @@ class GameScene: SKScene {
     var scoreLabel = SKLabelNode()
     var timerLabel = SKLabelNode()
     var tapLabel = SKLabelNode()
+    var afterDeathScoreLabel = SKLabelNode()
     var lost = false
     var scores = [[0], [0]]
     var defaults = UserDefaults.standard
@@ -190,7 +194,7 @@ class GameScene: SKScene {
     
     func setUpScoreLabel(){
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 100)
-        if(GameScene.modelName == "iPhone X" || GameScene.modelName == "Simulator iPhone X"){
+        if(GameScene.modelName == "iPhone X" || GameScene.modelName == "Simulator iPhone X" || GameScene.modelName == "iPhone Xr" || GameScene.modelName == "Simulator iPhone Xr" || GameScene.modelName == "iPhone Xs" || GameScene.modelName == "Simulator iPhone Xs" || GameScene.modelName == "iPhone XMax" || GameScene.modelName == "Simulator iPhone11,4" || GameScene.modelName == "iPhone11,4"){
             print(GameScene.modelName)
             scoreLabel.position = CGPoint(x: frame.midX, y: frame.maxY - 150)
         }
@@ -232,11 +236,16 @@ class GameScene: SKScene {
         scoreLabel.text = "You Lost!"
         scoreLabel.fontSize = 100
         scoreLabel.position = CGPoint(x: frame.midX, y: frame.midY)
+        afterDeathScoreLabel.text = "Your score: \(scores[0][0])"
+        afterDeathScoreLabel.fontSize = 75
+        afterDeathScoreLabel.fontColor = .black
+        afterDeathScoreLabel.position = CGPoint(x: frame.midX, y: frame.midY - 200)
         tapLabel.text = "Tap to try again"
         tapLabel.position = timerLabel.position
         tapLabel.fontColor = .black
         tapLabel.fontSize = 50
         addChild(scoreLabel)
+        addChild(afterDeathScoreLabel)
         addChild(tapLabel)
         saveScore()
         scores[0][0] = 0
